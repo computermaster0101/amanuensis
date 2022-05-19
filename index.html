@@ -109,22 +109,22 @@
 		recognition.onresult = function(event){
 			const current = event.resultIndex;
 			const transcript = event.results[current][0].transcript
-			contentDiv = document.getElementById("text")
+			const contentDiv = document.getElementById("text")
 			content.textContent = transcript
 			if(event.results[current].isFinal){
 				if(transcript !== lastFinal){
-					content.textContent = ""
 					lastFinal = transcript
 					addThis = document.createElement('p')
 					addThis.textContent = transcript;
+					addThis.addEventListener("dblclick", removeItem)
 					contentDiv.appendChild(addThis)
+					content.textContent = ""
 				}
 			}
 		}
 		recognition.onerror = function(event){
 			console.log('Speech recognition error detected: ' + event.error)
 			recognition.stop()
-			if(restart){toggle()}
 		}
 		
 		function toggle(){
@@ -134,13 +134,15 @@
 				on = false
 				element.setAttribute("style","color: #0099CC")
 				recognition.stop()
-				//if(restart){toggle()}
+				if(restart){toggle()}
 			} else {
 				on = true
 				element.setAttribute("style","color: red")
 				recognition.start();
 			}
 		}
+		
+		function removeItem(){event.target.remove()}
 	</script>
 </body>
 </html>
