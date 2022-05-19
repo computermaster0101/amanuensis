@@ -1,0 +1,14 @@
+{
+  "name": "amanuensis",
+  "version": "1.0.0",
+  "description": "speech to text utility",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "Michael Herber II",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
