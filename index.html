@@ -79,7 +79,7 @@
     <div class="speachtotextContainer">
         <div class="microphoneContainer">
             <div class="microphone">
-				<i class="fa fa-microphone fa-5x" id="clickable" style="color: #0099CC" onclick="toggle()"></i>
+				<i class="fa fa-microphone fa-5x" id="clickable" style="color: #0099CC" onclick="toggle(true)"></i>
             </div>
         </div>
 
@@ -104,7 +104,7 @@
 		}
 		recognition.onend = function(){
 			console.log("voice is no longer activated")
-			if(on){toggle()}
+			if(on){toggle(false)}
 		}
 		recognition.onresult = function(event){
 			const current = event.resultIndex;
@@ -127,14 +127,14 @@
 			recognition.stop()
 		}
 		
-		function toggle(){
+		function toggle(clicked){
 			element = document.getElementById("clickable")
 			contentDiv = document.getElementById("contentText")
 			if(on){
 				on = false
 				element.setAttribute("style","color: #0099CC")
 				recognition.stop()
-				if(restart){toggle()}
+				if((restart) && (clicked == false)){toggle(false)}
 			} else {
 				on = true
 				element.setAttribute("style","color: red")
