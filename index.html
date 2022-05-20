@@ -117,7 +117,7 @@
 					addThis = document.createElement('p')
 					addThis.textContent = transcript;
 					addThis.setAttribute("oncontextmenu", "removeThis();return false;")
-					addThis.setAttribute("ondblclick", "editThis(true)")
+					addThis.setAttribute("onclick", "editThis(true)")
 					addThis.setAttribute("onfocusout", "editThis(false)")
 					contentDiv.appendChild(addThis)
 					content.textContent = ""
