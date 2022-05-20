@@ -13,3 +13,7 @@ http://localhost:3000
 
 
 Works in Chrome and Edge. Does not work in Vivaldi or Firefox. Other browsers have not been tested
+
+double click to edit a line
+
+right click to remove a line

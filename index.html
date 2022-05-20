@@ -116,7 +116,9 @@
 					lastFinal = transcript
 					addThis = document.createElement('p')
 					addThis.textContent = transcript;
-					addThis.addEventListener("dblclick", removeItem)
+					addThis.setAttribute("oncontextmenu", "removeThis();return false;")
+					addThis.setAttribute("ondblclick", "editThis(true)")
+					addThis.setAttribute("onfocusout", "editThis(false)")
 					contentDiv.appendChild(addThis)
 					content.textContent = ""
 				}
@@ -142,7 +144,8 @@
 			}
 		}
 		
-		function removeItem(){event.target.remove()}
+		function removeThis(){event.target.remove()}
+		function editThis(editable){event.target.setAttribute("contenteditable", editable)}
 	</script>
 </body>
 </html>
